@@ -1,10 +1,28 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>$Title$</title>
-</head>
-<body>
-$END$
-</body>
-</html>
+{% extends 'estudiante/base.html' %}
+
+{% block principal %}
+    <table class="table">
+        <thead>
+            <th>Nombre</th>
+            <th>Codigo</th>
+            <th>Edad</th>
+            <th>Ciudad</th>
+            <th>Activo</th>
+        </thead>
+        <tbody>
+            {% for estudiante in estudiantes %}
+                <tr>
+                    <td>{{estudiante.nombre}}</td>
+                    <td>{{estudiante.codigo}}</td>
+                    <td>{{estudiante.edad}}</td>
+                    <td>{{estudiante.ciudad}}</td>
+                    {% if estudiante.activo %}
+                    <td>SI</td>
+                    {% else %}
+                    <td>NO</td>
+                    {% endif %}
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
