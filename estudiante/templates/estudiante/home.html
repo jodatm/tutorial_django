@@ -1,6 +1,7 @@
 {% extends 'estudiante/base.html' %}
 
 {% block principal %}
+    <a href="{% url 'lista_crear_asignaturas' %}">Matricular asignaturas a estudiantes</a>
     <table class="table">
         <thead>
             <th>Nombre</th>
@@ -8,6 +9,7 @@
             <th>Edad</th>
             <th>Ciudad</th>
             <th>Activo</th>
+            <th>Acción</th>
         </thead>
         <tbody>
             {% for estudiante in estudiantes %}
@@ -21,8 +23,15 @@
                     {% else %}
                     <td>NO</td>
                     {% endif %}
+                    <td>
+                        <a href="{% url 'listar_asignaturas' id=estudiante.id%}">Listar asignaturas</a>
+                    </td>
                 </tr>
             {% endfor %}
         </tbody>
     </table>
+{% endblock %}
+
+{% block nombre %}
+<h5>Listar estudiantes</h5>
 {% endblock %}

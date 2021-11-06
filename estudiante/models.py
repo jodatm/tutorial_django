@@ -1,4 +1,5 @@
 from django.db import models
+from asignatura.models import Asignatura
 
 # Create your models here.
 class Estudiante(models.Model):
@@ -10,3 +11,11 @@ class Estudiante(models.Model):
 
 	def __str__(self):
 		return self.nombre
+
+class EstudianteAsignatura(models.Model):
+	estudiante = models.ForeignKey(Estudiante, on_delete=models.CASCADE)
+	asignatura = models.ForeignKey(Asignatura, on_delete=models.CASCADE)
+
+	def __str__(self):
+		return self.estudiante.nombre + " " + self.asignatura.nombre
+

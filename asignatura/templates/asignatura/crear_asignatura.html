@@ -1,0 +1,13 @@
+{% extends 'estudiante/base.html' %}
+
+{% block principal %}
+<form method="post">
+    {% csrf_token %}
+    {{form.as_p}}
+    <input type="submit" value="{{nombre}}">
+</form>
+{% endblock %}
+
+{% block nombre %}
+<h5>Crear asignatura</h5>
+{% endblock %}

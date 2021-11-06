@@ -1,0 +1,23 @@
+{% extends 'estudiante/base.html' %}
+
+{% block principal %}
+    <a href="{% url 'lista_crear_asignaturas' %}">Matricular asignaturas a estudiantes</a>
+    <table class="table">
+        <thead>
+            <th>Nombre</th>
+            <th>Creditos</th>
+        </thead>
+        <tbody>
+            {% for asignatura in asignaturas %}
+                <tr>
+                    <td>{{asignatura.asignatura.nombre}}</td>
+                    <td>{{asignatura.asignatura.creditos}}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
+
+{% block nombre %}
+<h5>Listar estudiantes</h5>
+{% endblock %}
